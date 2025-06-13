@@ -1,0 +1,47 @@
+@startuml
+entity "Users" {
+  * id : UUID <<PK>>
+  --
+  email : VARCHAR
+  password : VARCHAR
+  username : VARCHAR
+  created_at : TIMESTAMP
+}
+
+entity "Auctions" {
+  * id : UUID <<PK>>
+  --
+  title : VARCHAR
+  description : TEXT
+  starting_price : DECIMAL
+  current_price : DECIMAL
+  end_time : TIMESTAMP
+  created_at : TIMESTAMP
+  seller_id : UUID <<FK>>
+}
+
+entity "Bids" {
+  * id : UUID <<PK>>
+  --
+  amount : DECIMAL
+  created_at : TIMESTAMP
+  auction_id : UUID <<FK>>
+  bidder_id : UUID <<FK>>
+}
+
+entity "Notifications" {
+  * id : UUID <<PK>>
+  --
+  message : TEXT
+  created_at : TIMESTAMP
+  user_id : UUID <<FK>>
+  auction_id : UUID <<FK>>
+}
+
+Users ||--o{ Auctions : seller_id
+Users ||--o{ Bids : bidder_id
+Users ||--o{ Notifications : user_id
+Auctions ||--o{ Bids : auction_id
+Auctions ||--o{ Notifications : auction_id
+
+@enduml
