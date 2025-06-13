@@ -11,7 +11,6 @@ router.post("/", auth, createAuction);
 
 router.get("/", getAuctions);
 
-// Get a single auction by ID
 router.get("/:id", getAuctionById);
 
 module.exports = router;
