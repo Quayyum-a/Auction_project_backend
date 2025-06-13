@@ -6,7 +6,7 @@ const {
 const auth = require("../middleware/auth");
 const router = express.Router();
 
-// CREATE A NOTIFICATION
+
 router.post("/", createNotification);
 
 // GET NOTIFICATIONS
