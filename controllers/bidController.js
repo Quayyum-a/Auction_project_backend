@@ -1,7 +1,6 @@
 const Bid = require("../models/Bid");
 const Auction = require("../models/Auction");
 
-// Bid controller functions will go here
 
 exports.placeBid = async (req, res) => {
   try {
