@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.post("/", auth, createAuction);
 
-// Get all auctions
 router.get("/", getAuctions);
 
 // Get a single auction by ID
