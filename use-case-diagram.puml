@@ -1,0 +1,18 @@
+@startuml
+actor User
+actor System
+
+User --> (Register)
+User --> (Login)
+User --> (Create Auction)
+User --> (Browse Auctions)
+User --> (Search Auctions)
+User --> (Place Bid)
+User --> (View My Bids)
+User --> (View My Auctions)
+User --> (Receive Notification)
+
+System --> (End Auction)
+System --> (Send Notification)
+
+@enduml
