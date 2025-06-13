@@ -1,0 +1,48 @@
+@startuml
+entity "User" {
+  * id : UUID
+  --
+  email : String
+  password : String
+  username : String
+  createdAt : Date
+}
+
+entity "Auction" {
+  * id : UUID
+  --
+  title : String
+  description : String
+  startingPrice : Number
+  currentPrice : Number
+  endTime : Date
+  createdAt : Date
+  sellerId : UUID
+}
+
+entity "Bid" {
+  * id : UUID
+  --
+  amount : Number
+  createdAt : Date
+  auctionId : UUID
+  bidderId : UUID
+}
+
+entity "Notification" {
+  * id : UUID
+  --
+  message : String
+  createdAt : Date
+  userId : UUID
+  auctionId : UUID
+}
+
+User ||--o{ Auction : creates
+User ||--o{ Bid : places
+User ||--o{ Notification : receives
+Auction ||--o{ Bid : has
+Auction ||--o{ Notification : triggers
+Notification }o-- Auction : about
+
+@enduml
