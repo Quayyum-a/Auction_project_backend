@@ -7,7 +7,6 @@ const {
 const auth = require("../middleware/auth");
 const router = express.Router();
 
-// Create a new auction
 router.post("/", auth, createAuction);
 
 // Get all auctions
